@@ -7,6 +7,7 @@ import org.http4s.{EmptyBody, Header, Headers, HttpRoutes, Method, ParseFailure,
 import org.typelevel.ci.CIString
 import zio.{Runtime, Task, Unsafe, ZIO}
 import zio.interop.catz._
+import org.scalajs.macrotaskexecutor.MacrotaskExecutor.Implicits._
 
 import scala.concurrent.{ExecutionContext, Future}
 import scala.scalajs.js
@@ -20,7 +21,6 @@ abstract class ZIOHandler {
     val json = js.JSON.stringify(event)
     js.Dynamic.global.console.log(json)
 
-    implicit val ec = ExecutionContext.global
     handle(event).toJSPromise
   }
 

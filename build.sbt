@@ -2,6 +2,7 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 
 ThisBuild / scalaVersion := "2.13.10"
 
+ThisBuild / organization := "lambda.js.http4s"
 lazy val root = (project in file("."))
   .settings(
     name := "http4s-js-lambda-zio-handler",
@@ -12,6 +13,7 @@ lazy val root = (project in file("."))
       "dev.zio" %%% "zio-interop-cats" % "3.3.0",
       "io.github.cquiroz" %%% "scala-java-time" % "2.2.0",
       "io.github.cquiroz" %%% "scala-java-time-tzdb" % "2.2.0",
-      "org.http4s" %%% "http4s-dsl" % "0.23.16"
+      "org.http4s" %%% "http4s-dsl" % "0.23.16",
+      "org.scala-js" %%% "scala-js-macrotask-executor" % "1.0.0"
     )
   ).enablePlugins(ScalaJSPlugin)
